@@ -1,0 +1,36 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: aliceblue;
+}
+
+h1{
+    text-align: center;
+}
+
+.boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box{
+    text-align: center;
+    background-color: white;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 15px;
+    height: 30vh;
+}
+
+h2{
+    padding: 1rem;
+}
+
+button{
+    padding: .5rem;
+}

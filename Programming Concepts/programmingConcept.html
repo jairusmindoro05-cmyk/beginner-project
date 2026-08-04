@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>1. VARIABLE EXAMPLE: </h1>
+    <h2>let age = 20;</h2>
+    <button onclick="output()">output</button>
+
+    <h1>JS DECLARATION EXAMPLE: </h1>
+    <h2>const school = "PMFTCI";</h2>
+    <h2>let name = "Jairus";</h2>
+    <h2>let age = 19;</h2>
+    <button onclick="output1()">output</button>
+
+    <h1>2. DATA TYPES EXAMPLE: </h1>
+    <h2>let age = 20;</h2>
+    <h2>let weight = 1.5;</h2>
+    <h2>let x = true;</h2>
+    <h2>let y = false;</h2>
+    <h2>let name = "Mindoro";</h2>
+    <h2>let z;</h2>
+    <button onclick="output2()">output</button>
+
+    <h1>3. INPUT/OUTPUT</h1>
+    <h2>let name = "Jairus Aldred S. Mindoro";</h2>
+    <button onclick="output3()">output</button>
+
+    <h1>4. OPERATOR EXAMPLE: </h1>
+    <h2>let a = 5;</h2>
+    <h2>let b = 5;</h2>
+    <h2>let sum = a + b;</h2>
+    <button onclick="output4()">output</button>
+
+    <h1>5. CONDITIONAL STATEMENT EXAMPLE: </h1>
+    <h2>const adult = 18;</h2>
+    <h2>
+        let age = 17; <br>
+        if(age >= adult){ <br>
+            console.log("You are adult") <br>
+        else{ <br>  
+            console.log("You are minor") <br>
+        }
+    </h2>
+    <button onclick="output5()">output</button>
+
+    <h1>SWITCH STATEMENT EXAMPLE:</h1>
+    <h2>
+        switch("monday"){ <br>
+        case "monday": <br>
+            console.log("May pasok"); <br>
+            break; <br>
+        case "tuesday": <br>
+            console.log("Walang pasok"); <br>
+            break; <br>
+        case "wednesday": <br>
+            console.log("May pasok"); <br>
+            break; <br>
+        case "thursday": <br>
+            console.log("PE day"); <br>
+            break; <br>
+        case "friday": <br>
+            console.log("May pasok"); <br>
+            break; <br>
+        case "saturday": <br>
+            console.log("Walang pasok"); <br>
+            break; <br>
+        case "sunday": <br>
+            console.log("Walang pasok"); <br>
+            break; <br>
+        default: <br>
+            console.log("ERROR"); <br>
+        } <br>
+    </h2>
+    <button onclick="output6()">output</button>
+
+    <h1>6. LOOPS STATEMENT EXAMPLE:</h1>
+    <h2>For loop statement:</h2>
+    <h2>
+        for(let i = 1; i <= 5; i++){   <br>
+            console.log(i) <br>
+        }
+    </h2>
+    <button onclick="output7()">output</button>
+    <h2>While loop statement:</h2>
+    <h2>
+        let number = 1; <br>
+        while(number <= 6){ <br>
+            console.log(number); <br>
+            number++ <br>
+        }
+    </h2>
+    <button onclick="output8()">output</button>
+
+    <h1>7. FUCTION STATEMENT: </h1>
+    <h2>
+        function greet(){ <br>
+            console.log("hello world"); <br>
+        } <br>
+        greet() <br>
+    </h2>
+    <button onclick="output9()">output</button>
+
+    <h1>8. ARRAY STATEMENT: </h1>
+    <h2>
+        let animal = ["dog", "cat", "bird",] <br>
+        console.log(animal[2])
+    </h2>
+    <button onclick="output10()">output</button>
+
+
+    <script>
+
+        function output(){
+            let age = 20;
+            console.log(age)
+        }
+
+        function output1(){
+            const school = "PMFTCI";
+            let name = "Jairus";
+            let age = 19;
+            console.log(
+                "school name: " + school,
+                "student name: " + name,
+                "student age: " + age,
+            )
+        }
+
+        function output2(){
+            let age = 20;
+            let weight = 1.5;
+            let x = true;
+            let y = false;
+            let name = "Mindoro";
+            let z;
+
+            console.log(
+                "Intiger: " + age,
+                "Float: " + weight,
+                "Boolean: " + x,
+                "Boolean: " + y,
+                "String: " + name,
+                z,
+            )
+        }
+
+        function output3(){
+            let name = "Jairus Aldred S. Mindoro";
+
+            console.log("Welcome back " + name)
+        }
+
+        function output4(){
+            let a = 5;
+            let b = 5;
+            let sum = a + b;
+
+            console.log(sum)
+        }
+
+        function output5(){
+            const adultAge = 18;
+            let age = 17;
+            if(age >= adultAge){
+                console.log("You're old enough")
+            }else{
+                console.log("You're minor");
+            }
+        }
+
+        function output6(){
+            switch("monday"){
+            case "monday":
+                console.log("May pasok");
+                break;
+            case "tuesday":
+                console.log("Walang pasok");
+                break;
+            case "wednesday":
+                console.log("May pasok");
+                break;
+            case "thursday":
+                console.log("PE day");
+                break;
+            case "friday":
+                console.log("May pasok");
+                break;
+            case "saturday":
+                console.log("Walang pasok");
+                break;
+            case "sunday":
+                console.log("Walang pasok");
+                break;
+            default:
+                console.log("ERROR");
+            }
+        }
+
+        function output7(){
+            for(let i = 1; i <= 5; i++){
+                console.log(i)
+            }
+        }
+        function output8(){
+            let number = 1;
+            while(number <= 6){
+                console.log(number)
+                number++
+            }
+        }
+
+        function output9(){
+            function greet(){
+                console.log("hello world")
+            }
+            greet()
+        }
+
+        function output10(){
+            let animal = ["dog", "cat", "bird"]
+            console.log(animal[2])
+        }
+
+    </script>
+</body>
+</html>

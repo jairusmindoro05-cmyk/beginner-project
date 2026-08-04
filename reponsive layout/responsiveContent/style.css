@@ -1,0 +1,128 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(https://static.vecteezy.com/system/resources/previews/015/882/420/original/modern-minimalist-dark-blue-premium-abstract-background-with-luxury-geometric-dark-shape-exclusive-wallpaper-design-for-website-poster-brochure-presentation-free-vector.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: fixed;
+    color: white;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(20px);
+    position: fixed;
+    width: 100%;
+}
+nav h1{
+    padding: 1rem;
+    font-size: 2rem;
+}
+nav button {
+    padding: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+}
+
+nav button .bar{
+    width: 30px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+
+}
+nav ul{
+    list-style: none;
+    display: flex;
+}
+nav li a{
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    font-size: 1.5em;
+}
+#home{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around ;
+    align-items: center;
+
+}
+#home .home{
+    font-size: 2.5rem;
+    width: 50vh;
+    
+}
+#home .home button{
+    padding: 1rem;
+    font-size: 1rem;
+    background-color: darkblue;
+    color: white;
+    border-radius: 15px;
+    border: none;
+}
+#home .home button:hover{
+    box-shadow: 0 0 15px darkblue;
+    scale: 1.2;
+}
+
+#home img{
+    width: 500px;
+    mix-blend-mode: color-burn;
+    mix-blend-mode: color-dodge;
+}
+
+@media (max-width: 800px) {
+    nav ul{
+        flex-direction: column;  
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 150px;
+        height: 100vh;
+        padding: 5rem 0;
+        gap: 1rem;
+        background-color: darkblue;
+        display: none;
+        border-radius: 10px;
+        box-shadow:  0 0 15px darkblue;
+    }
+    nav ul li a:hover{
+        text-decoration: underline;
+        color: lightblue;
+    }
+    nav button{
+        display: flex;
+        z-index: 999;
+    }
+    nav ul.act{
+        display: flex;
+    }
+    nav button.act .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+    nav button.act .bar:nth-child(2){
+        opacity: 0;
+    }
+    nav button.act .bar:nth-child(3){
+        transform: translateY(-17px) rotate(-45deg);
+
+    }
+
+    #home .home{
+        padding: 1rem;
+    }
+    #home img{
+        display: none;
+    }
+}

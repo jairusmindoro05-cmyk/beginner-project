@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Document</title>
+    <style>
+        @media (max-width: 900px) { 
+            *{
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            body{
+                background-color: black;
+                color: white;
+            }
+            nav{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                backdrop-filter: blur(10px);
+                position: fixed;
+                width: 100%;
+                box-shadow: 0 0 20px black;
+            }
+
+            nav h1{
+                padding: 1rem;
+            }
+
+            nav button{
+                padding: 1rem;
+                border: none;
+                cursor: pointer;
+                background: transparent;
+                z-index: 999;
+
+            }
+
+            nav button .bar{
+                background-color: white;
+                width: 20px;
+                height: 3px;
+                margin: 5px auto;
+                display: flex;
+                transition: all .5s ease;
+
+            }
+            nav ul{
+                list-style: none;
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding: 5rem 1rem;
+                width: 150px;
+                height: 100vh;
+                background-color: black;
+                border-radius: 10px 0;
+                flex-direction: column;
+                display: none;
+            }
+            nav ul li{
+                padding: 1rem 0;
+            }
+            nav ul li a{
+                text-decoration: none;
+                color: white;
+                font-size: 1.2rem;
+            }
+
+            nav ul.act{
+                display: flex;
+            }
+
+            nav button.act .bar:nth-child(1){
+                transform: translateY(8px) rotate(45deg);
+            }
+            nav button.act .bar:nth-child(2){
+                opacity: 0;
+            }
+            nav button.act .bar:nth-child(3){
+                transform: translateY(-8px) rotate(-45deg);
+
+            }
+            #product{
+                height: 100vh;
+                width: 100%;
+                padding: 10vh 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                gap: 1rem;
+                align-items: center;
+            }
+            #product .item button{
+                border-radius: 20px;
+                border: 1px solid white;
+                background-color: black;
+                color: white;
+            }
+            #product .item button img{
+                width: 300px;
+                border-radius: 20px;
+                padding: 1rem;
+            }
+            #product .item button h1{
+                padding:  0 1rem 1rem ;
+            }
+
+            #product .item #card1,
+            #product .item #card2,
+            #product .item #card3{
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background-color: black;
+            }
+            #product .item #card1 .btn1,
+            #product .item #card2 .btn2,
+            #product .item #card3 .btn3{
+                display: flex;
+                position: fixed;
+                top: 0;
+                right: 0;
+                cursor: pointer;
+                color: black;
+                font-size: 1.5rem;
+                padding: 1rem 2rem;
+            }
+            #product .item #card1 .info,
+            #product .item #card2 .info,
+            #product .item #card3 .info{
+                font-size: 1.3rem;
+                h1{
+                    padding: 1rem 0;
+                }
+                p{
+                    padding: .5rem 0;
+                }
+                button{
+                    padding: 1rem;
+                    border-radius: 10px;
+                    font-size: 1rem;
+                }
+                button:hover{
+                    background-color: white;
+                    color: black;
+                }
+            }
+        }
+
+        
+
+        @media (min-width: 900px) { 
+            *{
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            body{
+                background-color: black;
+                color: white;
+            }
+            nav{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                backdrop-filter: blur(10px);
+                position: fixed;
+                width: 100%;
+                box-shadow: 0 0 20px black;
+            }
+
+            nav h1{
+                padding: 1rem;
+            }
+
+            nav button{
+                display: none;
+            }
+
+            nav ul{
+                display: flex;
+            }
+            nav ul li{
+                padding: 1rem 0;
+                list-style: none;
+            }
+            nav ul li a{
+                padding: 1rem;
+                text-decoration: none;
+                color: white;
+                font-size: 1.2rem;
+            }
+            nav ul li .act{
+                background-color: white;
+                color: black;
+                border-radius: 50%;
+                text-decoration: underline;
+            }
+
+            
+            #product{
+                height: 100vh;
+                width: 100%;
+                padding: 10vh 0;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+                align-items: center;
+            }
+
+            #product .item{
+                display: flex;
+                justify-content: center;
+            }
+            
+            #product .item button{
+                border-radius: 20px;
+                border: 1px solid white;
+                background-color: black;
+                color: white;
+                width: auto;
+            }
+            #product .item button img{
+                width: 300px;
+                height: 300px;
+                border-radius: 20px;
+                padding: 1rem;
+                object-fit: cover;
+            }
+            #product .item button h1{
+                padding:  0 1rem 1rem ;
+            }
+
+            #product .item #card1,
+            #product .item #card2,
+            #product .item #card3{
+                width: 100%;
+                height: 100vh;
+                display: none;
+                position: fixed;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                background-color: black;
+                top: 0;
+                left: 0;
+                img{
+                    width: 800px;
+                    height: auto;
+                    border-radius: 20px;
+                    margin: 0 0 0 20vh;
+                }
+            }
+            #product .item #card1 .btn1,
+            #product .item #card2 .btn2,
+            #product .item #card3 .btn3{
+                display: flex;
+                position: fixed;
+                top: 0;
+                left: 0;
+                cursor: pointer;
+                color: white;
+                font-size: 1.5rem;
+                padding: 1rem 2rem;
+            }
+            #product .item #card1 .info,
+            #product .item #card2 .info,
+            #product .item #card3 .info{
+                font-size: 1.3rem;
+                padding: 0 10vh 15vh 10vh;
+                h1{
+                    padding: 1rem 0;
+                }
+                p{
+                    padding: .5rem 0;
+                }
+                button{
+                    padding: 1rem;
+                    border-radius: 10px;
+                    font-size: 1rem;
+                }
+                button:hover{
+                    background-color: white;
+                    color: black;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>Perfume Shop</h1>
+        <button>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a class="act" href="">Product</a></li>
+            <li><a href="">Cart</a></li>
+            <li><a href="">CheckOut</a></li>
+        </ul>
+    </nav>
+    <section id="product">
+        <div class="item">
+            <button onclick="view1()" id="view" class="view1">
+                <img src="https://th.bing.com/th/id/OIP.XW78S98mVsnnDLOM_VrAyAHaHa?w=160&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="">
+                <h1>JPG La Male Elixer</h1>
+            </button>
+            <div id="card1">
+                <i class="fa-solid fa-x btn1"></i>
+                <img src="https://th.bing.com/th/id/OIP.XW78S98mVsnnDLOM_VrAyAHaHa?w=160&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="">
+                <div class="info">
+                    <h1>JPG La Male Elixer</h1>
+                    <p>Jean Paul Gaultier's Le Male Elixir is a bold and intoxicating reimagining of the classic Le Male fragrance.</p>
+                    <h1>₱1500</h1>
+                    
+                    <button>Buy Now</button>
+                    <button>Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <button onclick="view2()" id="view" class="view2">
+                <img src="https://th.bing.com/th/id/OIP.L8X7KUJbjnhe7DvGbAE0CAHaHa?w=196&h=196&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="">
+                <h1>Ultra Mâle perfume</h1>
+            </button>
+            <div id="card2">
+                <i class="fa-solid fa-x btn2"></i>
+
+                <img src="https://th.bing.com/th/id/OIP.L8X7KUJbjnhe7DvGbAE0CAHaHa?w=196&h=196&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="">
+                <div class="info">
+                    <h1>Ultra Mâle perfume</h1>
+                    <p>Jean Paul Gaultier’s Ultra Male is a bold and seductive fragrance launched in 2015, building upon the success of the original Le Male. </p>
+                    <h1>₱1500</h1>
+                    <button>Buy Now</button>
+                    <button>Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <button onclick="view3()" id="view" class="view3">
+                <img src="https://th.bing.com/th/id/OIP.PTlhL6zEZ4jjoaqt-5D_3wHaHa?w=185&h=185&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="">
+                <h1>Le Mâle Le Parfum </h1>
+            </button>
+            <div id="card3">
+                <i class="fa-solid fa-x btn3"></i>
+
+                <img src="https://th.bing.com/th/id/OIP.PTlhL6zEZ4jjoaqt-5D_3wHaHa?w=185&h=185&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="">
+                <div class="info">
+                    <h1>Le Mâle Le Parfum </h1>
+                    <p>Le Male Le Parfum is a warm, spicy, and woody fragrance for men, blending cardamom, lavender, iris, vanilla, and amber for a charismatic and long-lasting scent.</p>
+                    <h1>₱1500</h1>
+                    <button>Buy Now</button>
+                    <button>Add to cart</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    
+
+    <script>
+        const btn = document.querySelector('button');
+        const ul = document.querySelector('ul');
+        const card = document.getElementById('card');
+        const ex1 = document.querySelector('.btn1')
+        const ex2 = document.querySelector('.btn2')
+        const ex3 = document.querySelector('.btn3')
+
+        btn.addEventListener("click", () => {
+            ul.classList.toggle('act');
+            btn.classList.toggle('act');
+        })
+
+        
+
+        function view1(){
+            card1.style.display = 'flex'
+            ex1.addEventListener("click", () => {
+                card1.style.display = 'none';
+            })
+        }
+        function view2(){
+            card2.style.display = 'flex'
+            ex2.addEventListener("click", () => {
+                card2.style.display = 'none';
+            })
+        }
+        function view3(){
+            card3.style.display = 'flex'
+            ex3.addEventListener("click", () => {
+                card3.style.display = 'none';
+            })
+        }
+    </script>
+</body>
+</html>

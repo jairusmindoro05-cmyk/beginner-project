@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Dashboard</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body{
+            background-color: white;
+            color: black;
+            width: 100%;
+            height: auto;
+            display: flex;
+        }
+        nav{
+            display: none;
+            flex-direction: column;
+            padding: 1rem;
+            height: 100vh;
+            background-color: rgb(130, 130, 130);
+            position: fixed;
+        }
+        nav h1{
+            padding: 1rem;
+        }
+        nav .exitbtn{
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        nav ul{
+            list-style: none;
+        }
+        nav ul li{
+            margin: 1rem;
+            
+
+        }
+        nav ul li a{
+            text-decoration: none;
+            font-size: 1.3rem;
+            color: black;
+
+        }
+        main{
+            width: 90%;
+        }
+        .nav{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+        .nav .left {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav .left #tog{
+            padding: 1rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        .nav .left #tog .navbar{
+            font-size: 1.8rem;
+        }
+        
+        .nav .left .searchbar #sb{
+            display: none;
+            
+        }
+        .nav .left .searchbar #sb input{
+            display: flex;
+            padding: .5rem;
+            font-size: 1rem;
+            border-radius: 15px;
+            border: none;
+            background-color: rgb(193, 192, 192);
+            position: absolute;
+            top: 2%;
+            left: 4%;
+            width: 50%;
+        }
+        .nav .left .searchbar #sb i{
+            position: absolute;
+            top: 3%;
+            right: 38%;
+            cursor: pointer;
+            font-size: 1.3rem;
+
+        }
+        .nav .left .searchbar .search{
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+        .nav .right {
+            display: flex;
+            align-items: center;
+            width: 100px;
+
+        }
+        .nav .right button{
+            font-size: 1.2rem;
+            border: none;
+            padding: .4rem;
+            border-radius: 10px;
+            background-color: rgb(193, 192, 192);
+            cursor: pointer;
+        }
+        .nav .right .profile{
+            font-size: 1.5rem;
+            padding: 1rem;
+            border-radius: 50%;
+            background-color: rgb(2, 109, 2);
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            margin: 0 1rem;
+            cursor: pointer;
+        }
+        .cards{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        }
+        .cards .card{
+            width:  350px;
+            background-color: rgb(193, 192, 192);
+            padding: 1rem;
+            margin: 1rem;
+            border-radius: 10px;
+            font-size: 1.5rem;
+        }
+        .prog{
+            display: grid;
+            grid-template-columns: 1fr, 1fr;
+            gap: 20px;
+        }
+        .charts{
+            padding: 1rem;
+            margin: 1rem;
+            background-color: rgb(193, 192, 192);
+            border-radius: 10px;
+            width: 70%;
+        }
+        .charts .chart{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
+            align-items: end;
+        }
+        .charts .chart .bar{
+            padding: 1rem;
+            margin: 1rem;
+            background-color: black;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+        }
+        .progress{
+            padding: 1rem;
+            margin: 1rem;
+            background-color: rgb(193, 192, 192);
+            width: 350px;
+            border-radius: 10px;
+        }
+        .progress .skills{
+            padding: 1rem;
+        }
+        #table-sec{
+            background-color: rgb(193, 192, 192);
+            margin: 1rem;
+            padding: 1rem;
+            border-radius: 10px;
+            overflow-x: auto;
+        }
+
+        th, td{
+            padding: 1rem;
+            text-align: left;
+        }
+        th{
+            color: rgb(115, 110, 110);
+        }
+        tr{
+            border-bottom: 2px solid black;
+        }
+        .act{
+            background-color: black;
+            color: white;
+        }
+        .act #nav,
+        .act .box,
+        .act .card,
+        .act .charts,
+        .act #theme,
+        .act #table-sec,
+        .act .progress{
+            background-color: rgb(42, 42, 42);
+            color: white;
+        }
+        .act .navbar,
+        .act #menu{
+            color: white;
+        }
+        .act .chart .bar{
+            background-color: white;
+        }
+        @media (min-width: 800px) {
+            main,
+            .prog .charts .box{
+                width: 100%;
+            }
+            nav{
+                position: fixed;
+            }
+            #nav{
+                display: flex;
+                position: relative;
+            }
+            .nav{
+                width: 95%;
+            }
+            .exitbtn,
+            .navbar{
+                display: none;
+            }
+            .cards .card{
+                width: 300px;
+            }
+            .prog .charts{
+                width: 700px;
+            }
+            .progress{
+                margin: 1rem;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <nav id="nav">
+        <i class="fa-solid fa-x exitbtn"></i>
+        <h1>Dashboard</h1>
+        <ul >
+            <li><a id="menu" href="">Dashboard</a></li>
+            <li><a id="menu" href="">Analytics</a></li>
+            <li><a id="menu" href="">Users</a></li>
+            <li><a id="menu" href="">Messages</a></li>
+            <li><a id="menu" href="">Settings</a></li>
+            <li><a id="menu" href="">Logout</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="nav">
+            <div class="left">
+                <button id="tog">
+                    <i class="fa-solid fa-bars navbar"></i>
+                </button>
+                <div class="searchbar">
+                    <i class="fa-solid fa-magnifying-glass search"></i>
+                    <div id="sb">
+                        <input type="text" placeholder="Search..." >
+                        <i class="fa-solid fa-x searchExis"></i>
+                    </div>
+                    
+
+                </div>
+            </div>
+
+            <div class="right">
+                <button id="theme" onclick="theme()">Theme</button>
+                <div class="profile">
+                    <p>J</p>
+                </div>
+            </div>
+            
+        </div>
+        <div class="cards">
+            <div class="card">
+                <h3>Total Users</h3>
+                <h1>2,400</h1>
+            </div>
+            <div class="card">
+                <h3>Revenue</h3>
+                <h1>₱85k</h1>
+            </div>
+            <div class="card">
+                <h3>Order</h3>
+                <h1>430</h1>
+            </div>
+            <div class="card">
+                <h3>Visitors</h3>
+                <h1>12k</h1>
+            </div>
+        </div>
+        <div class="prog">
+            <div class="charts">
+                <div class="box">
+                    <h2>Sales Analytics</h2>
+                    <div class="chart">
+                        <div class="bar" style="height: 35vh;"></div>
+                        <div class="bar" style="height: 30vh;"></div>
+                        <div class="bar" style="height: 25vh;"></div>
+                        <div class="bar" style="height: 20vh;"></div>
+                        <div class="bar" style="height: 15vh;"></div>
+                        <div class="bar" style="height: 10vh;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="progress">
+                <h1>Progress</h1>
+                <div class="skills">
+                    <h1>Front-end</h1>
+                    <progress value="50" max="100"></progress>
+                    <h1>Back-end</h1>
+                    <progress value="20" max="100"></progress>
+                    <h1>UI/UX</h1>
+                    <progress value="50" max="100"></progress>
+                </div>
+            </div>
+        </div>
+        <section id="table-sec">
+            <table>
+            <h2>Recent Users</h2>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Sales</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jairus</td>
+                    <td>active</td>
+                    <td>12,000</td>
+                </tr>
+                <tr>
+                    <td>Mark</td>
+                    <td>Pending</td>
+                    <td>8,500</td>
+                </tr>
+                <tr>
+                    <td>John</td>
+                    <td>Blocked</td>
+                    <td>3,500</td>
+                </tr>
+            </tbody>
+        </table>
+        </section>
+        
+    </main>
+    <script>
+        const tog = document.getElementById('tog');
+        const bar = document.querySelector('.bar');
+        const nav = document.getElementById('nav');
+        const menu = document.getElementById('menu');
+        const exit = document.querySelector('.exitbtn');
+        const search = document.querySelector('.search')
+        const sb = document.getElementById('sb');
+        const searchExis = document.querySelector('.searchExis');
+        const body = document.querySelector('body');
+        const card = document.querySelectorAll('.card')
+        let t = true;
+
+        tog.addEventListener('click', () => {
+            nav.style.display = "flex";
+        })
+        exit.addEventListener('click', () =>{
+            nav.style.display = "none";
+        })
+        search.addEventListener('click', ()=>{
+            sb.style.display = "flex";
+        })
+        searchExis.addEventListener('click', ()=>{
+            sb.style.display = "none";
+        })
+        function theme(){
+            document.body.classList.toggle('act')
+        }
+        
+    </script>
+</body>
+</html>

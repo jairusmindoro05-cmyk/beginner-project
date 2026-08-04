@@ -1,0 +1,220 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body{
+  background-color: rgb(236, 240, 245);
+  color: rgb(21, 21, 95);
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(243, 244, 245);
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+header img{
+  width: 50px;
+}
+header h1{
+  padding: 1rem 1rem 1rem 0;
+}
+
+header nav a{
+  padding: .5rem;
+  margin: 1rem;
+  font-size: 1.2em;  
+  text-decoration: none;
+  color: grey;
+}
+header nav a:hover{
+  background-color: skyblue;
+  text-decoration: underline;
+  color: white;
+  border-radius: 10px;
+}
+
+header button{
+  padding: .7rem;
+  margin: 1rem;
+  background-color: skyblue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+
+}
+header button:hover{
+  box-shadow: 0 0 15px skyblue;
+}
+
+#home{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+#home .par{
+  font-size: 2rem;
+}
+#home button{
+  padding: 15px;
+  margin: 10px;
+  width: 20vh;
+  font-size: 20px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 0 10px rgb(185, 185, 246);
+}
+
+#home button:hover{
+  background-color: blue;
+  color: white;
+  box-shadow: 0 0 15px blue;
+}
+
+#home img{
+  width: 120vh;
+}
+
+#feature{
+  height: 100%;
+}
+
+#feature h1{
+  padding-top: 20vh;
+  text-align: center;
+}
+
+#feature .boxes{
+  margin-top: 10vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#feature .boxes .box{
+  width: 40vh;
+  margin: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgb(103, 103, 109);
+  text-align: center;
+}
+
+#feature .boxes .box img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+#feature .boxes .box h2{
+  padding-top: 1rem;
+}
+#feature .boxes .box p{
+  padding: 1rem;
+}
+
+#feature .pd{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#feature .pd img{
+  width: 100vh;
+  margin: 5vh;
+}
+
+#feature .pd .info{
+  font-size: 2rem;
+  padding: 0 5vh 20vh 5vh;  
+}
+#feature .pd .info p{
+  padding: 15px 0 15px 0;
+}
+
+#pricing{
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+}
+
+#pricing h1{
+  padding-top: 15vh;
+  font-size: 2.5rem;
+}
+
+#pricing .box-price{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#pricing .box-price .box{
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 0 15px gray;
+  margin: 10vh;
+  padding: 5vh;
+  font-size: 2rem;
+  object-fit: contain;
+  width: 200vh;
+}
+
+#pricing .box-price .box .head{
+  padding: 5vh;
+}
+#pricing .box-price .box .head span{
+  font-size: 1.5rem;
+  color: gray;
+}
+
+#pricing .box-price .box ul li{
+  list-style: none;
+}
+
+#pricing .box-price button{
+  padding: 15px;
+  margin: 15px;
+  width: 30vh;
+  border-radius: 15px;
+  background-color: rgb(49, 49, 159);
+  color: white;
+  border: none;
+  font-size: 1rem;
+}
+
+#pricing .box-price button:hover{
+  box-shadow: 0 0 15px rgb(49, 49, 159);
+}
+
+#contact{
+  width: 100%;
+  height: 50vh;
+  text-align: center;
+  font-size: 1.5rem;
+  padding-top: 15vh;
+  background: linear-gradient(to right, rgb(193, 222, 232), rgb(83, 187, 229));
+}
+ 
+#contact button{
+  font-size: 1.5rem;
+  padding: 15px;
+  margin: 20px;
+  width: 30vh;
+  border-radius: 10px;
+  background: linear-gradient(to right, orange,yellow, lightyellow);
+  border: none;
+}
+#contact button:hover{
+  box-shadow: 0 0 15px rgba( 199, 168, 32, 0.905);
+}

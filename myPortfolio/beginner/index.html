@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JS Project For Beginner</h1>
+    <div class="boxes">
+        <div class="box">
+            <h2>Counter App</h2>
+            <h2 id="count">0</h2>
+            <div class="button">
+            <button onclick="minus()">Minus</button>
+            <button onclick="plus()">Add</button>    
+            <button onclick="reset()">Reset</button>
+            </div>
+        </div>
+        <div class="box">
+            <h2>To-Do List</h2>
+            <input type="text" id="inputTask" placeholder="Enter task">
+            <button onclick="addtask()">Add</button>
+            <ul id="taskCon">
+                
+            </ul>
+        </div>
+        <div class="box">
+            <h2>Digital Clock</h2>
+            <h3 id="oras">00:00:00</h3>
+        </div>
+        
+    </div>
+
+    <div class="boxes">
+        <div class="box">
+            <h2>Alert/PopUp</h2>
+            <button onclick="pop()"> Click me</button>
+        </div>
+        <div class="box">
+            <h2>Password</h2>
+            <input type="password" id="password" placeholder="Enter Password">
+
+            <button onclick="pass()">show pass</button>
+        </div>
+
+        <div class="box">
+            <h2>Qoute Generator</h2>
+            <p id="qoute">Click the button to generate a qoute</p>
+            <p id="author"></p>
+            <button onclick="generate()">Generate Qoute</button>
+        </div>
+        <div class="box">
+            <h2>background changer</h2>
+
+            <button class="aliceblue" onclick="change('aliceblue')">aliceblue</button>
+            <button class="red" onclick="change('red')">red</button>
+            <button class="yellow" onclick="change('yellow')">yellow</button>
+            <button class="blue" onclick="change('blue')">blue</button>
+        </div>
+        <div class="box">
+            <h2>Image slider</h2>
+            
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

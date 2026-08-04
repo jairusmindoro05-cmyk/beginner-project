@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Product Preview Card</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 900px) {
+            body{
+                background-color: black;
+                color: white;
+            }
+            
+            nav{
+                position: fixed;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: rgb(26, 26, 26);
+            }
+
+            nav h1{
+                padding: 1rem;
+            }
+
+            nav button{
+                padding: 1rem;
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+                z-index: 999;
+            }
+
+            nav button .bar{
+                display: block;
+                background: white;
+                width: 25px;
+                height: 3px;
+                margin: 5px auto;
+                transition: all .5s ease;
+            }
+
+            nav ul{
+                position: absolute;
+                flex-direction: column;
+                align-items: flex-start;
+                top: 0;
+                right: 0;
+                width: 170px;
+                height: 100vh;
+                padding: 5rem 1rem;
+                backdrop-filter: blur(20px);
+                box-shadow: 0 0 20px black;
+                display: none;
+            }
+            nav ul li{
+                list-style: none;
+                padding: 1rem 0;
+
+            }
+            nav ul li a{
+                text-decoration: none;
+                color: white;
+            }
+            nav ul.act{
+                display: flex;
+            }
+            nav button.act .bar:nth-child(1){
+                transform: translateY(8px) rotate(45deg);
+            }
+            nav button.act .bar:nth-child(2){
+                opacity: 0;
+            }
+            nav button.act .bar:nth-child(3){
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            main{
+                width: 100%;
+                height: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding-top: 10vh;
+            }
+            main .cards{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            main #card1, #card2, #card3{
+                display: none;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: black;
+                color: white;
+                padding: .5rem;
+                font-size: 1.2rem;
+                border: 1px solid white;
+                
+            }
+            main #card1 button,
+            main #card2 button,
+            main #card3 button{
+                padding: 1rem;
+                font-size: 1rem;
+                border-radius: 20px;
+                background-color: black;
+                color: white;
+                border: 1px solid white;
+            }
+            main #card1 button:hover,
+            main #card2 button:hover,
+            main #card3 button:hover{
+                background-color: white;
+                color: black;
+                box-shadow: 0 0 15px white;
+            }
+
+            main #card1 p,
+            main #card2 p,
+            main #card3 p{
+                padding: 0 6rem 0 1rem ;
+
+            }
+             main #card1 .btn1, #card2 .btn2, #card3 .btn3 {
+                position: absolute;
+                padding: 1rem;
+                color: rgb(26, 26, 26);
+                cursor: pointer;
+            }
+            main #card1 img, #card2 img, #card3 img{
+                border-radius: 20px;
+                width: 358px;
+            }
+            
+            main .item #pic #go1, #go2, #go3{
+                background: transparent;
+                border: none;
+                color: white;
+                padding: 1rem;
+                margin: 1rem;
+                border: 1px solid white;
+                border-radius: 20px;
+
+            }
+            main .item #pic #go1, #go2, #go3,  h1{
+                padding: 1rem;
+            }
+            
+            main .item  #pic #go1 img, #go2 img, #go3 img{
+                width: 300px;
+                border-radius: 20px;
+            }
+            main #card1.show,
+            main #card2.show,
+            main #card3.show{
+                display: flex;
+            }
+            main #card1.hide,
+            main #card2.hide,
+            main #card3.hide{
+                display: none;
+            }
+
+            
+            
+        }
+        
+        @media (min-width: 901px) {
+      
+            nav{
+                position: fixed;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                backdrop-filter: blur(10px);
+                box-shadow: 0 0 20px black;
+                color: white;
+            }
+            nav #active{
+                text-decoration: underline;
+                color: black;
+                background-color: white;
+                border-radius: 20px;
+            }
+            nav h1{
+                padding: 1rem;
+            }
+            nav ul{
+                list-style: none;
+                display: flex;
+                font-size: 1.3rem;
+                justify-content: space-around;
+                gap: 1rem;
+            }
+            nav ul li a{
+                text-decoration: none;
+                color: white;
+                padding: 1rem;
+            }
+            nav button{
+                display: none;
+            }
+            main{
+                background-color: black;
+                color: white;
+                
+            }
+            main .item{
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            main .item #pic{
+                padding: 1rem;
+            }
+            main .item #pic #go1,
+            main .item #pic #go2,
+            main .item #pic #go3{
+                padding: 1rem;
+                background-color: black;
+                color: white;
+                border: 1px solid white;
+                border-radius: 20px;
+                transition: all .5s ease;
+            }
+            main .item #pic #go1:hover,
+            main .item #pic #go2:hover,
+            main .item #pic #go3:hover{
+                scale: 1.3;
+            }
+            main .item #pic #go1 img,
+            main .item #pic #go2 img,
+            main .item #pic #go3 img{
+                width: 100%;
+                height: 30vh;
+                border-radius: 10px;
+            }
+
+            main .cards{
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            main #card1,
+            main #card2,
+            main #card3{
+                display: none;
+                position: fixed;
+                top: 0;
+                width: 60%;                
+                height: auto ;
+                background-color: black;
+                color: white;
+                padding: 1.8rem ;
+                margin-top: 25vh;
+                flex-direction: row;
+                font-size: 1.4rem;
+                border: 1px solid white;
+                border-radius: 20px;
+                box-shadow: 0 0 20px black;
+            
+            }
+            main #card1 h1,
+            main #card2 h1,
+            main #card3 h1{
+                padding: .5rem;
+            }
+            main #card1 p,
+            main #card2 p,
+            main #card3 p{
+                padding: .5rem;
+            }
+
+            
+            main #card1 .btn1, #card2 .btn2, #card3 .btn3 {
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding: 1rem;
+                color: white;
+                cursor: pointer;
+            }
+            main #card1 button, #card2 button, #card3 button{
+                padding: 1rem;
+                font-size: 1rem;
+                border-radius: 20px;
+                background-color: black;
+                color: white;
+                border: 1px solid white;
+            }
+            main #card1 button:hover,
+            main #card2 button:hover,
+            main #card3 button:hover{
+                background-color: white;
+                color: black;
+                box-shadow: 0 0 15px white;
+            }
+            main #card1 img,
+            main #card2 img,
+            main #card3 img{
+                width: 80rem;
+                height: 50%;
+                border-radius: 10px;
+                padding: 10px;
+                border-radius: 20px;
+            }
+
+            main #card1.show,
+            main #card2.show,
+            main #card3.show{
+                display: flex;
+            }
+            main #card1.hide,
+            main #card2.hide,
+            main #card3.hide{
+                display: none;
+            }
+        }
+        </style>
+</head>
+<body>
+    <nav>
+        <h1>Perfume Shop</h1>
+        <button>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a id="active" href="">Product</a></li>
+            <li><a href="">Cart</a></li>
+            <li><a href="">Checkout</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="item">
+            <div id="pic">
+                <button id="go1">
+                    <img src="https://th.bing.com/th/id/OIP.XW78S98mVsnnDLOM_VrAyAHaHa?w=160&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="">
+                    <h1>JPG La Male Elixer</h1>
+                </button>
+            </div>
+            <div id="pic">
+                <button id="go2">
+                    <img src="https://th.bing.com/th/id/OIP.L8X7KUJbjnhe7DvGbAE0CAHaHa?w=196&h=196&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="">
+                    <h1>Ultra Mâle perfume</h1>
+                </button>
+            </div>
+            <div id="pic">
+                <button id="go3">
+                    <img src="https://th.bing.com/th/id/OIP.PTlhL6zEZ4jjoaqt-5D_3wHaHa?w=185&h=185&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="">
+                    <h1>Le Mâle Le Parfum </h1>
+                </button>
+            </div>
+        </div>
+        <div class="cards">
+            <div id="card1">
+                <i class="fa-solid fa-x btn1"></i>
+                <img src="https://th.bing.com/th/id/OIP.XW78S98mVsnnDLOM_VrAyAHaHa?w=160&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="">
+                <div class="info">
+                    <h1>JPG La Male Elixer</h1>
+                    <p>Jean Paul Gaultier's Le Male Elixir is a bold and intoxicating reimagining of the classic Le Male fragrance.</p>
+                    <h1>₱1500</h1>
+                    <button>Buy Now</button>
+                    <button>Add to cart</button>
+                </div>
+            </div>
+            <div id="card2">
+                <i class="fa-solid fa-x btn2"></i>
+
+                <img src="https://th.bing.com/th/id/OIP.L8X7KUJbjnhe7DvGbAE0CAHaHa?w=196&h=196&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="">
+                <div class="info">
+                    <h1>Ultra Mâle perfume</h1>
+                    <p>Jean Paul Gaultier’s Ultra Male is a bold and seductive fragrance launched in 2015, building upon the success of the original Le Male. </p>
+                    <h1>₱1500</h1>
+                    <button>Buy Now</button>
+                    <button>Add to cart</button>
+                </div>
+            </div>
+            <div id="card3">
+                <i class="fa-solid fa-x btn3"></i>
+
+                <img src="https://th.bing.com/th/id/OIP.PTlhL6zEZ4jjoaqt-5D_3wHaHa?w=185&h=185&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="">
+                <div class="info">
+                    <h1>Le Mâle Le Parfum </h1>
+                    <p>Le Male Le Parfum is a warm, spicy, and woody fragrance for men, blending cardamom, lavender, iris, vanilla, and amber for a charismatic and long-lasting scent.</p>
+                    <h1>₱1500</h1>
+                    <button>Buy Now</button>
+                    <button>Add to cart</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const nav = document.getElementById('active')
+        const btn = document.querySelector('button');
+        const ul = document.querySelector('ul');
+        const go1 = document.getElementById('go1');
+        const go2 = document.getElementById('go2');
+        const go3 = document.getElementById('go3');
+        const card1 = document.getElementById('card1');
+        const card2 = document.getElementById('card2');
+        const card3 = document.getElementById('card3');
+        const btn1 = document.querySelector('.btn1')
+        const btn2 = document.querySelector('.btn2')
+        const btn3 = document.querySelector('.btn3')
+        let a = false;
+        
+        btn.addEventListener("click", ()=> {
+            btn.classList.toggle('act');
+            ul.classList.toggle('act');
+            nav.classList.toggle('act')
+        })
+
+        go1.addEventListener("click", ()=> {
+            if(!a){
+                card1.classList.toggle('show');
+                a = true;
+            }else{
+                card1.classList.toggle('hide')
+
+                a = false;
+            }
+        })
+        go2.addEventListener("click", ()=> {
+            if(!a){
+                card2.classList.toggle('show');
+                
+                a = true;
+            }else{
+                card2.classList.toggle('hide')
+                
+                a = false;
+            }
+        })
+        go3.addEventListener("click", ()=> {
+            if(!a){
+                card3.classList.toggle('show');
+                btn3.style.color = 'white';
+                a = true;
+            }else{
+                card3.classList.toggle('hide')
+                
+                a = false;
+
+            }
+        })
+        btn1.addEventListener("click", ()=> {
+            card1.classList.toggle('hide');
+
+        })
+        btn2.addEventListener("click", ()=> {
+            card2.classList.toggle('hide');
+
+        })
+        btn3.addEventListener("click", ()=> {
+            card3.classList.toggle('hide');
+
+        })
+
+    </script>
+</body>
+</html>

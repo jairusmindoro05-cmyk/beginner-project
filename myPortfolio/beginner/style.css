@@ -1,0 +1,69 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: aliceblue;
+}
+
+h1{
+    text-align: center;
+    padding: 2rem;
+}
+
+.boxes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxes .box{
+    background-color: white;
+    padding: 1rem;
+    margin: 1rem;
+    width: 17%;
+    height: 25vh;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 15px gray;
+}
+
+.boxes .box .button{
+    margin: .5rem;
+}
+.boxes .box .button button{
+    padding: .5rem;
+}
+
+.boxes .box1 ul li button{
+    margin-left: 19vh;
+}
+
+.boxes .box h2{
+    padding: .5rem;
+    text-align: center;
+}
+.boxes .box input{
+    padding: 5px;
+}
+
+.boxes .box button{
+    padding: .5rem;
+}
+
+.boxes .box ul{
+    font-size: 1rem;
+    list-style: none;
+    
+}
+
+.boxes .box2 h3{
+    padding: 1rem;
+}
+
+.blue{background: aliceblue;}
+.red{background: red;}
+.yellow{background: yellow;}
+.black{background: blue;}

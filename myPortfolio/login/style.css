@@ -1,0 +1,75 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login{
+    background-color: rgb(20, 20, 20);
+    width: 300px;
+    padding: 30px;  
+    border-radius: 15px;
+    box-shadow: 0 0 15px red;
+}
+
+.login h1{
+    color: red;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login .input{
+    background: none;
+    margin-bottom: 20px;
+}  
+.login .input label{
+    color: red;
+    font-size: 20px;
+}
+
+.login .input input{
+    background: none;
+    border: black;
+    color: white;
+    padding: 7px;
+    border-radius: 10px;
+    width: 30vh;
+}
+.login .input input:hover{
+    scale: 1.1;
+    border-color: red;
+}
+
+button {
+    background-color: darkred;
+    color: black;
+    font-size: 15px;
+    padding: 10px;
+    width: 32vh;
+    border-radius: 10px;
+}
+
+button:hover{
+    background-color: red;
+}
+
+.extra{
+    padding: 20px;
+    color: red;
+}
+
+.extra a{
+    text-decoration: none;
+    color: white;
+}
+
+

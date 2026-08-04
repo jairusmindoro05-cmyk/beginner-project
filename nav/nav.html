@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>nav</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        nav{
+            width: 95%;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+            margin: 1rem;
+            border-radius: 50px;
+            position: fixed;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            background-color: white;
+        }
+        nav .navi{
+            width: 95%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+        nav .navi h1{
+            cursor: pointer;
+        }
+        nav .navi .menu ul{
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 0;
+            right: 0;
+            list-style: none;
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            margin: 1rem;
+            border: 2px solid black;
+            border-radius: 20px;
+        }
+        nav .navi .menu ul li{
+            display: flex;
+        }
+        nav .navi .menu ul li a{
+            text-decoration: none;
+            color: black;
+            font-size: 1.3rem;
+            padding: 1rem;
+        }
+        nav .icon .bars{
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        nav .navi .exit{
+           font-size: 2rem;
+           display: flex;
+           justify-content: flex-end;
+           width: 100%;
+        } 
+        @media (min-width: 800px) {
+            nav .icon .bars{
+                display: none;
+            }
+            nav{
+                padding: 7px;
+            }
+            nav .navi .menu ul{
+                display: flex;
+                flex-direction: row;
+                position: unset;
+                padding: 0;
+                margin: 0;
+                border: none;
+
+            }
+            nav .navi .menu .exit{
+                display: none;
+            }
+            nav .navi .menu ul li a{
+                transition: .2s ease;
+            }
+            nav .navi .menu ul li a:hover{
+                scale: 1.2;
+                text-decoration: underline;
+                color: blue;
+            }
+            nav .navi .menu ul li a:active{
+                scale: 1.2;
+                text-decoration: underline;
+                color: blue;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="navi">
+            <div class="logo">
+                <h1>Navigation</h1>
+            </div>
+            <div class="menu">
+                <ul>
+                    <i class="fa-solid fa-x exit"></i>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Skills</a></li>
+                    <li><a href="">Project</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="icon">
+            <i class="fa-solid fa-bars bars"></i>
+        </div>
+    </nav>
+    <script>
+        const icon = document.querySelector(".bars");
+        const ex = document.querySelector(".exit");
+        const menu = document.querySelector("ul");
+
+        icon.addEventListener("click", ()=> {
+            menu.style.display = "flex";
+
+            ex.addEventListener("click", ()=> {
+                menu.style.display = "none";
+            })
+        })
+        
+
+    </script>
+</body>
+</html>

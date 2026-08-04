@@ -1,0 +1,366 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(16, 16, 17);
+    color: white;
+}
+
+nav{
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 20px black;
+    backdrop-filter: blur(10px);
+}
+
+nav .logo{
+    color: red;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+nav button{
+    display: none;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+nav button .bar{
+    display: block;
+    background: white;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    transition: all .5s ease;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    margin: 1rem;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+nav ul li a:hover{
+    text-decoration: underline;
+    color: red;
+    transition: all .5s ease;
+}
+
+@media (max-width: 900px) {
+    nav{
+        position: fixed;
+        width: 100%;
+
+    }
+    nav ul{
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        position: absolute;
+        top: 60%;
+        right: 5%;
+        font-size: 2rem;
+        font-weight: 400;
+        padding: 1rem ;
+        box-shadow: 0 0 20px red;
+        width: 200px;
+        display: none;
+        background-color: rgba(16, 16, 17);
+        border-radius: 20px;
+
+    }
+    nav button{
+        display: block;
+        z-index: 999;
+
+    }
+    nav ul.act{
+        display: flex;
+    }
+    nav button.act .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+    nav button.act .bar:nth-child(2){
+        opacity: 0;
+    }
+    nav button.act .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+
+    }
+
+}
+
+#home{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#home .Home{
+    font-size: 2rem;
+}
+
+#home .Home .soc-link a i{
+    color: red;
+}
+
+#home .Home h1 p{
+    color: red;
+    font-size: 5rem;
+}
+
+#home .Home span::before{
+    content: "";
+    animation: words 10s infinite;
+}
+
+@keyframes words {
+    0%, 30%{
+        content: "Programing";
+        color: red;
+    }
+    31%, 50%{
+        content: "Front-end Developer";
+        color: red;
+
+    }
+    51%, 80%{
+        content: "Mobile Develoment";
+        color: red;
+
+    }81%, 100%{
+        content: "Coding";
+        color: red;
+
+    }
+}
+
+#home .Home .proj button{
+    background-color: maroon;
+    padding: 10px;
+    border-radius: 15px;
+}
+#home .Home .proj button:hover{
+    background-color: red;
+    box-shadow: 0 0 20px red;
+}
+
+#home .Home .proj button a{
+    color: white;
+    text-decoration: none;
+}
+
+#home .image img{
+    width: 40vh;
+    border-radius: 20px;
+    box-shadow: 0 0 20px red;
+}
+
+
+#about {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#about .about{
+    margin-bottom: 50vh;
+}
+
+#about .image img{
+    width: 40vh;
+    border-radius: 50%;
+    box-shadow: 0 0 20px red;
+
+}
+
+@media (max-width: 900px) {
+    #home {
+        width: 100%;
+        height: 110vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column-reverse;
+    }
+
+    #home .Home{
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    #home .Home h1 p{
+        font-size: 4rem;
+    }
+
+    #home .image img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        width: 30vh;
+    }
+
+    #home .Home button{
+        margin: 1rem;
+    }
+
+    #about{
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+    }
+
+    #about .about p span{
+        color: red;
+    }
+
+    #about .image img{
+        display: none;
+    }
+
+    #skills{
+        display: block;
+        .skill{
+            
+        }
+    }
+   
+    #project{
+        height: 160vh;
+        width: 100%;
+        text-align: center;
+        padding: 10vh 0;
+    }
+    #project h1{
+        padding: 2rem;
+        font-size: 3rem;
+    }
+
+    #project .proj .pic{
+        
+    }
+    #project .proj .pic .x a img{
+        width: 500px;
+    }
+
+    #conatact {
+        height: 100vh;
+        width: 100%;
+    }
+    
+    #mess{
+        padding: 20vh 0;
+    }
+
+    #mess .contact{
+        flex-direction: column;
+    }
+    #mess .contact .email input{
+        background-color: rgb(28, 26, 26);
+        color: white;
+        box-shadow: 0 0 20px red;
+        border-radius: 20px;
+    }
+    #mess .contact .email textarea{
+        background-color: rgb(28, 26, 26);
+        color: white;
+        border-radius: 20px;
+        box-shadow: 0 0 20px red;
+        font-size: 1rem;
+    }
+}
+
+#skills{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    font-size: 5rem;
+
+    h1{
+        font-size: 3rem;
+    }
+    i{
+        color: red;
+    }
+}
+
+#contact{
+    text-align: center;
+    height: 100vh;
+}
+#contact h1 #home{
+    display: flex;
+    justify-items: space-between;
+    align-content: center;
+    padding: 25vh 20vh 30vh 0;
+}
+
+
+
+#contact .contact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#contact .contact input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    margin: 2rem;
+    font-size: 1rem;
+    width: 50vh;
+}
+#contact .contact textarea{
+    padding: 1rem;
+    width: 50vh;
+    font-size: 1.5rem;
+}
+
+#contact button{
+    padding: 1rem;
+    margin: 2rem;
+    border-radius: 5px;
+    background-color: maroon;
+    color: white;
+    font-size: 1rem;
+    width: 50vh;
+}
+
+#contact button:hover{
+    background-color: red;
+    box-shadow: 0 0 15px red;
+}

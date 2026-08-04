@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="x"></h1>
+    <script>
+        let num1 = Number(prompt());
+        let op = prompt('Enter op: (+, -, *, /, )');
+        let num2 = Number(prompt());   
+        let ans;
+
+        switch(op){
+            case "+":
+                ans = num1 + num2;
+                break;
+            case "-":
+                ans = num1 - num2;
+                break;
+            case "*":
+                ans = num1 * num2;
+                break;
+            case "/":
+                if(num2 == 0){
+                    alert("Invalid!")
+                }
+                ans = num1 / num2;
+                break;
+            default:
+                ans = "error!";    
+
+
+        }
+        document.getElementById('x').innerText = num1 + op + num2 + " = " + ans;
+
+    </script>
+</body>
+</html>

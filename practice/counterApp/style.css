@@ -1,0 +1,17 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  text-align: center;
+  margin: 100px;
+}
+.con {
+  padding: 50px;
+  margin: 50px 50px;
+}
+
+button {
+  padding: 15px;
+}

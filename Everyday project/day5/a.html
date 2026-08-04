@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #111111;
+            color: white;
+            width: 100%;
+            height: 100vh;
+        }
+        nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.8rem;
+            border-bottom: 1px solid rgb(61, 61, 61);
+            position: fixed;
+            width: 100%;
+            background-color: #222222;
+        }
+        nav .logo,
+        nav .menu{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav .logo .search{
+            width: 3rem;
+            height: 3rem;
+            background-color: rgb(67, 66, 66);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 .3rem .5rem 0;
+        }
+        nav .logo .search:hover{
+            background-color: rgb(81, 80, 80);
+
+        }
+
+
+        nav .logo .facebook{
+            font-size: 3rem;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            margin: .3rem .3rem .5rem .3rem;
+
+        }
+
+        nav .logo .facebook i{
+            object-fit: cover;
+        }
+
+        nav .menu i{
+            background-color: rgb(67, 66, 66);
+            color: white;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center ;
+           justify-content: center;
+           margin: 0 .3rem .5rem 0;
+        }
+
+        nav .menu i:hover{
+            background-color: rgb(81, 80, 80);
+        }
+
+        nav .menu img{
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+        }
+        #coverpic .pic{
+            background-color: #111111;
+        }
+        #coverpic .pic img{
+            width: 100%;
+            height: 230px;
+        }
+        #profpic{
+            display: flex;
+            flex-direction: column;
+            margin-top: -7vh;
+            background-color: #222222;
+
+        }
+        #profpic .pic{
+            display: flex;
+            justify-content: center;
+            height: 18vh;
+        }
+        #profpic .pic img{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            
+        }
+        #profpic .info{
+            width: 100%;
+            height: 30vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid white;
+        }
+        #profpic .info .name{
+            text-align: center;
+            padding: 1rem;
+        }
+        #profpic .info .buttons #story{
+            font-size: 1.3rem;
+            border: none;
+            padding: .8rem;
+            margin: 0 .2rem;
+            border-radius: 10px;
+            background-color: rgb(49, 63, 218);
+            color: white;
+        }
+        #profpic .info .buttons button{
+            font-size: 1.3rem;
+            border: none;
+            padding: .8rem;
+            margin: 0 .2rem;
+            border-radius: 10px;
+            background-color: rgb(56, 57, 58);
+            color: white;
+        }
+        .nav{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 8vh;
+            background-color: #222222;
+
+        }
+        .nav ul{
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+        .nav ul li a{
+            text-decoration: none;
+            padding: .5rem;
+            color: white;
+        }
+        .nav .dots i{
+            background-color: #333333;
+            width: 7vh;
+            padding: 1rem;
+            margin-left: 1rem;
+            border-radius: 10px;
+        }
+        #highlight{
+            background-color: #222222;
+            width: 90%;
+            height: auto;
+            margin: 1rem;
+            padding: 1rem;
+            border-radius: 10px;
+        }
+        #highlight h2{
+            padding-bottom: 1rem;
+        }
+        #highlight button{
+            width: 100%;
+            font-size: 1rem;
+            padding: .5rem;
+            border-radius: 10px;
+        }
+        #friends{
+            background-color: #222222;
+            padding: 1rem;
+            margin: 1rem;
+            border-radius: 10px;
+        }
+        #friends .top{
+            display: flex;
+            justify-content: space-between;
+        }
+        #friends .top h3{
+            color: gray;
+        }
+        #friends h3 a{
+            color: rgb(49, 63, 218);
+            text-decoration: none;
+        }
+        #photo{
+            background-color: #222222;
+            padding: 1rem;
+            margin: 1rem;
+            border-radius: 10px;
+        }
+        #photo .top{
+            display: flex;
+            justify-content: space-between;
+        }
+        #photo .top h3 a{
+            text-decoration: none;
+            color: rgb(49, 63, 218);
+            
+        }
+        #post{
+            background-color: #222222;
+            padding: 1rem;
+            margin: 1rem;
+            border-radius: 10px;
+        }
+        #post .top{
+            display: flex;
+            border-bottom: 1px solid gray;
+            padding-bottom: 1rem;
+        }
+        #post .top img{
+            width: 60px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        #post .top input{
+            width: 100%;
+            margin: 0 10px;
+            border-radius: 50px;
+            background-color: #333333;
+            border: none;
+            padding: 1rem;
+            font-size: 1rem;
+            color: white;
+        }
+        
+        #post .event{
+            display: flex;
+            justify-content: space-around;
+            font-size: .7rem;
+        }
+        #post .event h2{
+            display: flex;
+            padding-top: 1rem;
+        }
+        #post-list{
+            background-color: #222222;
+            padding: 1rem;
+            margin: 1rem;
+            border-radius: 10px;
+        }
+        #post-list .top{
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid white ;
+            padding-bottom: 1rem;
+        }
+        #post-list .top .but button{
+            padding: .5rem;
+            border: none;
+            background-color: #333333;
+            color: white;
+        }
+        #post-list ul{
+            display: flex;
+            justify-content: space-around;
+
+        }
+        #post-list ul li{
+            list-style: none;
+            padding-top: 1rem;
+
+        }
+        #post-list ul li a{
+            text-decoration: none;
+            color: white;
+        }
+        nav .logo .input{
+            position: absolute;
+            background-color: #222222;
+            left: 0;
+            top: 0;
+            padding: 1rem;
+            font-size: 1.5rem;
+            width: 80%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+
+        }
+        nav .logo .input input{
+            padding: .6rem;
+            width: 100%;
+            border-radius: 50px;
+            background-color: #333333;
+            border: none;
+            color: white;
+        }
+        nav .logo .input i{
+            font-size: 1rem;
+            padding-right: 1rem;
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <div class="facebook">
+                <i class="fa-brands fa-facebook icon1" style="color: rgb(49, 63, 218)"></i>
+            </div>
+            <div class="search">
+                <i id="search" class="fa-solid fa-magnifying-glass" style="color: rgb(192, 194, 198); font-size: 1.5rem;"></i>
+            </div>    
+            <div class="input">
+                <i id="back" class="fa-solid fa-arrow-left"></i>
+                <input type="text" placeholder="Search facebook">
+            </div>
+
+        </div>
+        <div class="menu">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-brands fa-facebook-messenger"></i>
+            <i class="fa-solid fa-bell"></i>
+            <img src="https://www.bing.com/th/id/OIP.dDKYQqVBsG1tIt2uJzEJHwHaHa?w=178&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="">
+        </div>
+    </nav>
+    <section id="coverpic">
+        <div class="pic">
+            <img src="https://th.bing.com/th/id/OIP.xbPiWULD0CbO-b_k9ANOkgHaCv?w=260&h=129&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="">
+        </div>
+    </section>
+    <section id="profpic">
+        <div class="pic">
+            <img src="https://www.bing.com/th/id/OIP.dDKYQqVBsG1tIt2uJzEJHwHaHa?w=178&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="">
+        </div>
+        <div class="info">
+            <div class="name">
+                <h1>Jairus Aldred S Mindoro</h1>
+                <h3>448 friends</h3>
+            </div>
+            <div class="buttons">
+                <button id="story">+Add to story</button>
+                <button>Edit profile</button>
+                <button><i class="fa-solid fa-angle-down" style="color: rgb(192, 194, 198);"></i></button>
+            </div>
+        </div>
+    </section>
+    <div class="nav">
+        <ul>
+            <li><a href="">All</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Friends</a></li>
+            <li><a href="">Photos</a></li>
+            <li><a href="">More<i class="fa-solid fa-sort-down"></i></a></li>
+        </ul>
+        <div class="dots">
+            <i class="fa-solid fa-ellipsis"></i>
+
+        </div>
+    </div>
+    <section id="highlight">
+        <h2>Highlights</h2>
+        <div id="highlight-con">
+
+        </div>
+        <button>Add highlights</button>
+    </section>
+    <section id="friends">
+        <div class="top">
+            <div class="info">
+                <h2>Friends</h2>
+                <h3>448 friends</h3>
+            </div>
+            <h3><a href="">See all friends</a></h3>
+        </div>
+        <div id="photo-con">
+
+        </div>
+    </section>
+    <section id="photo">
+        <div class="top">
+            <h2>Photos</h2>
+            <h3><a href="">See all photos</a></h3>
+        </div>
+        <div class="photo-con">
+
+        </div>
+    </section>
+    <section id="post">
+        <div class="top">
+            <img src="https://www.bing.com/th/id/OIP.dDKYQqVBsG1tIt2uJzEJHwHaHa?w=178&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="">
+            <input type="text" placeholder="What's on your mind?">
+        </div>
+        <div class="event">
+            <h2><i class="fa-solid fa-video" style="color: rgb(187, 26, 64);"></i> Live</h2>
+            <h2><i class="fa-solid fa-images" style="color: rgb(55, 157, 36);"></i> Photo/video</h2>
+            <h2><i class="fa-solid fa-flag" style="color: rgb(100, 163, 214);"></i> Life update</h2>
+        </div>
+    </section>
+    <section id="post-list">
+        <div class="top">
+            <h2>Posts</h2>
+            <div class="but">
+                <button><i class="fa-solid fa-sliders"></i> Filter</button>
+                <button><i class="fa-solid fa-gear"></i> Manage posts</button>
+            </div>
+        </div>
+        <ul>
+            
+            <li><a href=""><i class="fa-solid fa-bars"></i> List view</a></li>
+            <li><a href=""><i class="fa-solid fa-table-cells-large"></i> Grid view</a></li>
+        </ul>
+    </section>
+    <script>
+        const search = document.getElementById('search');
+        const input = document.querySelector('.input');
+        const back = document.getElementById('back');
+        search.addEventListener("click", ()=>{
+            input.style.display = 'flex';
+        })
+        back.addEventListener("click", ()=>{
+            input.style.display = "none";
+        })
+    </script>
+</body>
+</html>
